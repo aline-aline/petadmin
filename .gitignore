@@ -8,7 +8,18 @@
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
-/tmp/
+/tmp/*
+/log/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore bundler config.
+/.bundle
+
+
+# Ignore Byebug command history file.
+.byebug_history
+
 
 # Used by dotenv library to load environment variables.
 # .env
