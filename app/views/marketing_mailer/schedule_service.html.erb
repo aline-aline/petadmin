@@ -1,0 +1,21 @@
+<h1>Hello <%= @schedule_service.client.name %>! Your services scheduled are listed bellow:</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedule_service.schedule_service_items.order(date: :desc).each do |item| %>
+      <tr>
+        <td><%= item.service.title %></td>
+        <td><%= item.date %></td>
+        <td><%= item.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>Total: <%= @schedule_service.total %></p>

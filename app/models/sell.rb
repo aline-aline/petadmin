@@ -34,7 +34,7 @@ class Sell < ApplicationRecord
       total = total - total * (self.discount.value/100) if self.discount.percent?
     end
 
-    total = (total &gt;= 0)? total : 0
+    total = (total >= 0)? total : 0
     self.total = total
   end
 end

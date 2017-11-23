@@ -2,6 +2,7 @@ class ScheduleService < ApplicationRecord
   include Fae::BaseModelConcern
 
   before_save :set_total
+  after_save :schedule_emails
 
   belongs_to :client
   has_many :schedule_service_items, dependent: :destroy
@@ -19,6 +20,10 @@ class ScheduleService < ApplicationRecord
   def set_total
     self.total = schedule_service_items.inject(0){ |sum, item| sum + 
     item.service.price }
+  end
+
+  def schedule_emails
+    ScheduleServiceJob.perform_later self
   end
   
 end
