@@ -26,6 +26,7 @@ module Fae
     def structure
       [
         item('Manage', subitems: [
+          item('Addresses', path: admin_addresses_path),
           item('Clients', path: admin_clients_path),
           item('Discounts', path: admin_discounts_path),
           item('Suppliers', path: admin_suppliers_path),
