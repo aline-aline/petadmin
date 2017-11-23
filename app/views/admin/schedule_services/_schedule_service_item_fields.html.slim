@@ -1,0 +1,5 @@
+.nested-fields
+  = fae_association f, :service
+  = fae_datepicker f, :date
+  = f.input :status, collection: ScheduleServiceItem.statuses, include_blank: 'Chose', selected: ScheduleServiceItem.statuses[f.object.status]
+  = link_to_remove_association "Remove Service", f
