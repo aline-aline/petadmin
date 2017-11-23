@@ -5,5 +5,7 @@
 
   main.content
     = fae_input f, :title
-    = fae_prefix f, :value, prefix: '$', placeholder: '50.00'
+    = fae_radio f, :kind, collection: Discount.kinds, checked: 
+    Discount.kinds[@item.kind]
+    = fae_input f, value
 
